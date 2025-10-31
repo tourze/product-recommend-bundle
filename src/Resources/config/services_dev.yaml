@@ -1,0 +1,16 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  ProductRecommendBundle\DataFixtures\RecommendBlockFixtures:
+    tags: [doctrine.fixture.orm]
+
+  ProductRecommendBundle\DataFixtures\RecommendElementFixtures:
+    tags: [doctrine.fixture.orm]
+
+  ProductRecommendBundle\DataFixtures\RecommendElementTagFixtures:
+    tags: [doctrine.fixture.orm]
+
+  ProductRecommendBundle\DataFixtures\RelatedRecommendFixtures:
+    tags: [doctrine.fixture.orm]
