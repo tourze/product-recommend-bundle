@@ -48,9 +48,7 @@ final class ProductRecommendBlockCrudControllerTest extends AbstractEasyAdminCon
 
     public function testGetEntityFqcn(): void
     {
-        $client = self::createClientWithDatabase();
-        $admin = $this->createAdminUser('admin@test.com', 'password123');
-        $this->loginAsAdmin($client, 'admin@test.com', 'password123');
+        $client = self::createAuthenticatedClient();
 
         // 测试实际的页面访问
         $client->request('GET', '/admin');
@@ -71,9 +69,7 @@ final class ProductRecommendBlockCrudControllerTest extends AbstractEasyAdminCon
 
     public function testEntityPersistence(): void
     {
-        $client = self::createClientWithDatabase();
-        $admin = $this->createAdminUser('admin@test.com', 'password123');
-        $this->loginAsAdmin($client, 'admin@test.com', 'password123');
+        $client = self::createAuthenticatedClient();
 
         // 测试管理后台主页可以访问
         $client->request('GET', '/admin');

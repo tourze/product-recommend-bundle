@@ -65,9 +65,7 @@ final class ProductRecommendRelatedCrudControllerTest extends AbstractEasyAdminC
 
     public function testGetEntityFqcn(): void
     {
-        $client = self::createClientWithDatabase();
-        $admin = $this->createAdminUser('admin@test.com', 'password123');
-        $this->loginAsAdmin($client, 'admin@test.com', 'password123');
+        $client = self::createAuthenticatedClient();
 
         $client->catchExceptions(true);
         $client->request('GET', '/admin/product-recommend/related');
@@ -80,9 +78,7 @@ final class ProductRecommendRelatedCrudControllerTest extends AbstractEasyAdminC
 
     public function testEntityPersistence(): void
     {
-        $client = self::createClientWithDatabase();
-        $admin = $this->createAdminUser('admin@test.com', 'password123');
-        $this->loginAsAdmin($client, 'admin@test.com', 'password123');
+        $client = self::createAuthenticatedClient();
 
         $client->catchExceptions(true);
         $client->request('GET', '/admin/product-recommend/related');
