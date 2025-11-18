@@ -33,7 +33,8 @@ class RelatedRecommend implements \Stringable
     #[Assert\Type(type: 'bool')]
     private ?bool $valid = false;
 
-    #[ORM\Column(type: Types::BIGINT, options: ['comment' => '访问SPU'])]
+    // use RemarkableAware; // Trait not found
+    #[ORM\Column(type: Types::STRING, length: 20, options: ['comment' => '访问SPU'])]
     #[Assert\NotBlank]
     #[Assert\Regex(pattern: '/^\d+$/')]
     #[Assert\Length(max: 20)]
@@ -44,7 +45,7 @@ class RelatedRecommend implements \Stringable
     #[Assert\Length(max: 100)]
     private ?string $scene = null;
 
-    #[ORM\Column(type: Types::BIGINT, options: ['comment' => '推荐SPU'])]
+    #[ORM\Column(type: Types::STRING, length: 20, options: ['comment' => '推荐SPU'])]
     #[Assert\NotBlank]
     #[Assert\Regex(pattern: '/^\d+$/')]
     #[Assert\Length(max: 20)]
