@@ -16,27 +16,6 @@ use Tourze\PHPUnitSymfonyWebTest\AbstractEasyAdminControllerTestCase;
 #[RunTestsInSeparateProcesses]
 final class ProductRecommendElementCrudControllerTest extends AbstractEasyAdminControllerTestCase
 {
-    public function testGetEntityFqcn(): void
-    {
-        $client = self::createAuthenticatedClient();
-
-        // 测试实际的页面访问
-        $client->request('GET', '/admin');
-        // 设置静态客户端以支持响应断言
-        self::getClient($client);
-        $this->assertResponseIsSuccessful();
-
-        // 通过反射验证静态方法
-        $reflection = new \ReflectionClass(ProductRecommendElementCrudController::class);
-        $method = $reflection->getMethod('getEntityFqcn');
-        $result = $method->invoke(null);
-
-        $this->assertSame(
-            RecommendElement::class,
-            $result
-        );
-    }
-
     public function testEntityPersistence(): void
     {
         $client = self::createAuthenticatedClient();

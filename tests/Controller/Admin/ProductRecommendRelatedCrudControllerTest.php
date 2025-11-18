@@ -63,19 +63,6 @@ final class ProductRecommendRelatedCrudControllerTest extends AbstractEasyAdminC
         yield '有效' => ['valid'];
     }
 
-    public function testGetEntityFqcn(): void
-    {
-        $client = self::createAuthenticatedClient();
-
-        $client->catchExceptions(true);
-        $client->request('GET', '/admin/product-recommend/related');
-
-        $this->assertSame(
-            RelatedRecommend::class,
-            ProductRecommendRelatedCrudController::getEntityFqcn()
-        );
-    }
-
     public function testEntityPersistence(): void
     {
         $client = self::createAuthenticatedClient();

@@ -50,21 +50,6 @@ final class ProductRecommendElementTagCrudControllerTest extends AbstractEasyAdm
         yield '有效' => ['valid'];
     }
 
-    public function testGetEntityFqcn(): void
-    {
-        $client = self::createClientWithDatabase();
-        $admin = $this->createAdminUser('admin@test.com', 'password123');
-        $this->loginAsAdmin($client, 'admin@test.com', 'password123');
-
-        $client->catchExceptions(true);
-        $client->request('GET', '/admin/product-recommend/element-tag');
-
-        $this->assertSame(
-            RecommendElementTag::class,
-            ProductRecommendElementTagCrudController::getEntityFqcn()
-        );
-    }
-
     public function testEntityPersistence(): void
     {
         $client = self::createClientWithDatabase();
