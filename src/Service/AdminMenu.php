@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace ProductRecommendBundle;
+namespace ProductRecommendBundle\Service;
 
 use Knp\Menu\ItemInterface;
 use ProductRecommendBundle\Entity\RecommendBlock;

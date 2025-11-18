@@ -6,17 +6,13 @@ namespace ProductRecommendBundle\Entity;
 
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use ProductRecommendBundle\DbalType\SnowflakeBigIntType;
 use ProductRecommendBundle\Repository\RelatedRecommendRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 use Tourze\DoctrineHelper\SortableTrait;
 use Tourze\DoctrineIndexedBundle\Attribute\IndexColumn;
-use Tourze\DoctrineSnowflakeBundle\Service\SnowflakeIdGenerator;
 use Tourze\DoctrineSnowflakeBundle\Traits\SnowflakeKeyAware;
 use Tourze\DoctrineTimestampBundle\Traits\TimestampableAware;
 use Tourze\DoctrineUserBundle\Traits\BlameableAware;
-
-// use DoctrineEnhanceBundle\Traits\RemarkableAware; // Trait not found
 
 /**
  * 产品间推荐、相关推荐
@@ -28,31 +24,15 @@ use Tourze\DoctrineUserBundle\Traits\BlameableAware;
 #[ORM\Entity(repositoryClass: RelatedRecommendRepository::class)]
 class RelatedRecommend implements \Stringable
 {
+    use SnowflakeKeyAware;
     use TimestampableAware;
     use BlameableAware;
     use SortableTrait;
-
-    #[ORM\Id]
-    #[ORM\GeneratedValue(strategy: 'CUSTOM')]
-    #[ORM\CustomIdGenerator(class: SnowflakeIdGenerator::class)]
-    #[ORM\Column(type: Types::BIGINT, nullable: false, options: ['comment' => 'ID'])]
-    protected ?string $id = null;
-
-    final public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    final public function setId(?string $id): void
-    {
-        $this->id = $id;
-    }
 
     #[ORM\Column(type: Types::BOOLEAN, nullable: true, options: ['comment' => '有效', 'default' => 0])]
     #[Assert\Type(type: 'bool')]
     private ?bool $valid = false;
 
-    // use RemarkableAware; // Trait not found
     #[ORM\Column(type: Types::BIGINT, options: ['comment' => '访问SPU'])]
     #[Assert\NotBlank]
     #[Assert\Regex(pattern: '/^\d+$/')]

@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace ProductRecommendBundle\Tests;
+namespace ProductRecommendBundle\Tests\Service;
 
 use Knp\Menu\ItemInterface;
 use Knp\Menu\MenuFactory;
 use Knp\Menu\MenuItem;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
-use ProductRecommendBundle\AdminMenu;
 use ProductRecommendBundle\Entity\RecommendBlock;
 use ProductRecommendBundle\Entity\RecommendElement;
 use ProductRecommendBundle\Entity\RecommendElementTag;
 use ProductRecommendBundle\Entity\RelatedRecommend;
+use ProductRecommendBundle\Service\AdminMenu;
 use Tourze\EasyAdminMenuBundle\Service\LinkGeneratorInterface;
 use Tourze\PHPUnitSymfonyWebTest\AbstractEasyAdminMenuTestCase;
 
