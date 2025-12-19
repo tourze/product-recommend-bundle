@@ -40,9 +40,7 @@ final class ProductRecommendElementCrudControllerTest extends AbstractEasyAdminC
         $this->assertEquals('Test reason', $element->getTextReason());
     }
 
-    /**
-     * @phpstan-ignore-next-line missingType.generics
-     */
+    
     protected function getControllerService(): AbstractCrudController
     {
         $controller = self::getService(ProductRecommendElementCrudController::class);

@@ -6,7 +6,7 @@ namespace ProductRecommendBundle\DependencyInjection;
 
 use Tourze\SymfonyDependencyServiceLoader\AutoExtension;
 
-class ProductRecommendExtension extends AutoExtension
+final class ProductRecommendExtension extends AutoExtension
 {
     protected function getConfigDir(): string
     {

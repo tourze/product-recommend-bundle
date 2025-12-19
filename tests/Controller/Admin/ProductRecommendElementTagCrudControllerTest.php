@@ -18,7 +18,6 @@ use Tourze\PHPUnitSymfonyWebTest\AbstractEasyAdminControllerTestCase;
 #[RunTestsInSeparateProcesses]
 final class ProductRecommendElementTagCrudControllerTest extends AbstractEasyAdminControllerTestCase
 {
-    /** @phpstan-ignore-next-line missingType.generics */
     protected function getControllerService(): AbstractCrudController
     {
         return self::getService(ProductRecommendElementTagCrudController::class);
